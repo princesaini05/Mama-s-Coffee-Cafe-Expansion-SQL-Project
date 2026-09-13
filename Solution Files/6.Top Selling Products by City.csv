@@ -1,0 +1,46 @@
+city_name,product_name,total_order,product_rank
+Ahmedabad,"Cold Brew Coffee Pack (6 Bottles)",40,1
+Ahmedabad,"Coffee Beans (500g)",35,2
+Ahmedabad,"Instant Coffee Powder (100g)",26,3
+Bangalore,"Cold Brew Coffee Pack (6 Bottles)",197,1
+Bangalore,"Ground Espresso Coffee (250g)",167,2
+Bangalore,"Instant Coffee Powder (100g)",150,3
+Chennai,"Cold Brew Coffee Pack (6 Bottles)",192,1
+Chennai,"Coffee Beans (500g)",181,2
+Chennai,"Instant Coffee Powder (100g)",172,3
+Delhi,"Ground Espresso Coffee (250g)",183,1
+Delhi,"Instant Coffee Powder (100g)",170,2
+Delhi,"Coffee Beans (500g)",161,3
+Hyderabad,"Instant Coffee Powder (100g)",36,1
+Hyderabad,"Cold Brew Coffee Pack (6 Bottles)",28,2
+Hyderabad,"Ground Espresso Coffee (250g)",27,3
+Indore,"Instant Coffee Powder (100g)",33,1
+Indore,"Cold Brew Coffee Pack (6 Bottles)",26,2
+Indore,"Ground Espresso Coffee (250g)",26,2
+Indore,"Coffee Beans (500g)",23,3
+Jaipur,"Cold Brew Coffee Pack (6 Bottles)",178,1
+Jaipur,"Coffee Beans (500g)",175,2
+Jaipur,"Instant Coffee Powder (100g)",170,3
+Kanpur,"Cold Brew Coffee Pack (6 Bottles)",57,1
+Kanpur,"Ground Espresso Coffee (250g)",55,2
+Kanpur,"Coffee Beans (500g)",50,3
+Kolkata,"Ground Espresso Coffee (250g)",45,1
+Kolkata,"Cold Brew Coffee Pack (6 Bottles)",44,2
+Kolkata,"Coffee Beans (500g)",38,3
+Lucknow,"Instant Coffee Powder (100g)",28,1
+Lucknow,"Coffee Beans (500g)",25,2
+Lucknow,"Cold Brew Coffee Pack (6 Bottles)",23,3
+Lucknow,"Ground Espresso Coffee (250g)",23,3
+Mumbai,"Ground Espresso Coffee (250g)",62,1
+Mumbai,"Instant Coffee Powder (100g)",60,2
+Mumbai,"Cold Brew Coffee Pack (6 Bottles)",53,3
+Nagpur,"Ground Espresso Coffee (250g)",39,1
+Nagpur,"Instant Coffee Powder (100g)",29,2
+Nagpur,"Cold Brew Coffee Pack (6 Bottles)",28,3
+Nagpur,"Coffee Beans (500g)",28,3
+Pune,"Cold Brew Coffee Pack (6 Bottles)",259,1
+Pune,"Ground Espresso Coffee (250g)",254,2
+Pune,"Instant Coffee Powder (100g)",245,3
+Surat,"Coffee Beans (500g)",48,1
+Surat,"Cold Brew Coffee Pack (6 Bottles)",45,2
+Surat,"Ground Espresso Coffee (250g)",41,3
