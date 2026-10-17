@@ -1,58 +1,92 @@
-# Mama-s-Coffee-Cafe-Expansion-SQL-Project
+# Mama's Coffee Café Expansion Analysis | MySQL
 
-![Company Logo](https://github.com/princesaini05/Mama-s-Coffee-Cafe-Expansion-SQL-Project/blob/75cbfe79f1596622d5593ebaacfeffebf47655fc/Mama's%20coffe%20Expansion%20Analysis%20with%20SQL.png)
+![Project Banner](https://github.com/princesaini05/Mama-s-Coffee-Cafe-Expansion-SQL-Project/blob/75cbfe79f1596622d5593ebaacfeffebf47655fc/Mama's%20coffe%20Expansion%20Analysis%20with%20SQL.png)
 
-## Objective
-The goal of this project is to analyze the sales data of Mama's Coffee Cafe, a company that has been selling its products online since January 2023, and to recommend the top three major cities in India for opening new coffee shop locations based on consumer demand and sales performance.
+## Business Problem
+Mama's Coffee Café has sold coffee products online since **January 2023**. Management now wants to open its first physical outlets but has limited budget, so it must choose the **3 best cities in India** to expand into.
 
-## Key Questions
-1. **Coffee Consumers Count**  
-   How many people in each city are estimated to consume coffee, given that 25% of the population does?
+Opening a café in the wrong city means high rent with too little demand. This project uses SQL to answer one question:
 
-2. **Total Revenue from Coffee Sales**  
-   What is the total revenue generated from coffee sales across all cities in the last quarter of 2023?
+> **Which three cities offer the best balance of customer demand, revenue and rent cost?**
 
-3. **Sales Count for Each Product**  
-   How many units of each coffee product have been sold?
+## Dataset
+Relational database with **4 tables** (see `Mama_s_Coffee_Cafe_SCHEMAS.sql`):
 
-4. **Average Sales Amount per City**  
-   What is the average sales amount per customer in each city?
+| Table | Description | Key columns |
+|---|---|---|
+| `city` | City-level market data | city_id, city_name, population, estimated_rent, city_rank |
+| `customers` | Customer records | customer_id, customer_name, city_id (FK) |
+| `products` | Coffee product catalog | product_id, product_name, price |
+| `sales` | Transaction records | sale_id, sale_date, product_id (FK), customer_id (FK), total, rating |
 
-5. **City Population and Coffee Consumers**  
-   Provide a list of cities along with their populations and estimated coffee consumers.
+**Records:** `[10388]` sales records, `[497]` customers, `[14]` cities, `[28]` products
 
-6. **Top Selling Products by City**  
-   What are the top 3 selling products in each city based on sales volume?
+**Assumption:** 25% of each city's population is treated as potential coffee consumers.
 
-7. **Customer Segmentation by City**  
-   How many unique customers are there in each city who have purchased coffee products?
+## SQL Concepts Used
+- Multi-table `JOIN`s (INNER, LEFT)
+- Common Table Expressions (CTEs)
+- Subqueries
+- Aggregate functions (`SUM`, `COUNT DISTINCT`, `ROUND`)
+- Window functions (`DENSE_RANK`, `LAG`)
+- Date functions (`EXTRACT` for year, quarter, month)
 
-8. **Average Sale vs Rent**  
-   Find each city and their average sale per customer and avg rent per customer
+## Analysis Performed (10 Business Questions)
+Full queries are in `Mama_s_Coffee_Cafe_Solutions.sql`.
 
-9. **Monthly Sales Growth**  
-   Sales growth rate: Calculate the percentage growth (or decline) in sales over different time periods (monthly).
+| # | Question | Technique |
+|---|---|---|
+| 1 | Estimated coffee consumers per city | Aggregation, ROUND |
+| 2 | Total revenue in Q4 2023 by city | JOINs, EXTRACT |
+| 3 | Units sold per product | LEFT JOIN, GROUP BY |
+| 4 | Average sales per customer in each city | JOINs, COUNT DISTINCT |
+| 5 | City population vs coffee consumers vs actual customers | CTEs |
+| 6 | Top 3 products in each city | DENSE_RANK window function |
+| 7 | Unique customers per city | JOINs |
+| 8 | Average sale vs average rent per customer | CTEs |
+| 9 | Month-over-month sales growth | LAG window function |
+| 10 | Market potential of top cities | Multi-CTE analysis |
 
-10. **Market Potential Analysis**  
-    Identify top 3 city based on highest sales, return city name, total sale, total rent, total customers, estimated  coffee consumer
-    
+## Key Findings
+
+- **Revenue:** Total revenue in Q4 2023 was `[₹1963300]`, led by `[Pune - ₹434330]`.
+- **Best-selling product:** `[Cold Brew Coffee Pack (6 Bottles)]` ranked #1 in `[6]` of `[14]` cities (Q6).
+- **Growth trend:** Monthly sales `[fluctuated]`, with the strongest month being `[January 2023]` (Q9).
+- **Rent impact:** `[Jaipur]` had the lowest rent per customer at ₹`[156]`, while `[Mumbai]` had the highest at ₹`[1,036]]` (Q8).
+- **Market size:** Delhi has the largest estimated coffee-consumer base at **7.7 million**, but only `[0.9]`% of them are currently customers (Q5).
 
 ## Recommendations
-After analyzing the data, the recommended top three cities for new store openings are:
+Top three cities for new outlets:
 
-**City 1: Pune**  
-1. Average rent per customer is very low.  
-2. Highest total revenue.  
-3. Average sales per customer is also high.
+### 1. Pune: best overall
+- Highest total revenue in the historical data
+- Highest average sale per customer (**₹24,197**)
+- Strong balance of revenue and rent cost
 
-**City 2: Delhi**  
-1. Highest estimated coffee consumers at 7.7 million.  
-2. Highest total number of customers, which is 68.  
-3. Average rent per customer is 330 (still under 500).
+### 2. Delhi: best for customer reach
+- Largest estimated coffee-consumer market (**7.7 million**)
+- **68** active customers
+- Average rent per customer of **₹330**, still under ₹500
+- Biggest room for untapped growth
 
-**City 3: Jaipur**  
-1. Highest number of customers, which is 69.  
-2. Average rent per customer is very low at 156.  
-3. Average sales per customer is better at 11.6k.
+### 3. Jaipur: best low-cost option
+- **69** active customers
+- Lowest average rent per customer (**₹156**)
+- Healthy average sale per customer (**₹11.6K**)
 
----
+## How to Run
+1. Run `Mama_s_Coffee_Cafe_SCHEMAS.sql` to create the tables
+2. Import data in this order: `city` → `products` → `customers` → `sales`
+3. Run queries from `Mama_s_Coffee_Cafe_Solutions.sql`
+
+## Limitations and Next Steps
+- Only online sales data was available, so offline demand is estimated using the 25% assumption.
+- Rent is a single estimate per city and does not account for locality or footfall.
+- **Next steps:** build a Power BI dashboard on top of these queries, and add a profit-per-city model including rent and operating costs.
+
+## Tools
+MySQL · SQL · GitHub
+
+## Author
+**Prince** · Data Analyst
+[GitHub](https://github.com/princesaini05)
