@@ -3,7 +3,7 @@
 ![Project Banner](https://github.com/princesaini05/Mama-s-Coffee-Cafe-Expansion-SQL-Project/blob/75cbfe79f1596622d5593ebaacfeffebf47655fc/Mama's%20coffe%20Expansion%20Analysis%20with%20SQL.png)
 
 ## Business Problem
-Mama's Coffee Café has sold coffee products online since **January 2023**. Management now wants to open its first physical outlets but has limited budget, so it must choose the **3 best cities in India** to expand into.
+Mama's Coffee Café has sold coffee products online since **January 2023**. Management now wants to open its new outlets but has limited budget, so it must choose the **3 best cities in India** to expand into.
 
 Opening a café in the wrong city means high rent with too little demand. This project uses SQL to answer one question:
 
