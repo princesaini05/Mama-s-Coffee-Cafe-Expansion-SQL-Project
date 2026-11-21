@@ -74,6 +74,9 @@ Top three cities for new outlets:
 - Lowest average rent per customer (**₹156**)
 - Healthy average sale per customer (**₹11.6K**)
 
+## Power BI Dashboard
+![Project Banner](https://github.com/princesaini05/Mama-s-Coffee-Cafe-Expansion-SQL-Project/blob/902c7ee89dcbff5fc8e2fe5a45cfbb73bda67474/Power%20BI%20Visual%20Mama%E2%80%99s%20Coffee%20Cafe%20Expansion%20Analysis.png)
+
 ## How to Run
 1. Run `Mama_s_Coffee_Cafe_SCHEMAS.sql` to create the tables
 2. Import data in this order: `city` → `products` → `customers` → `sales`
